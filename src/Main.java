@@ -1,8 +1,6 @@
-public class Main
-{
+public class Main {
     public static void main(String[] args)
     {
-        int asciIndex;
         //Asci logo
         String[] ascis = {"\u001B[33m       _.-nnMMMMnn-._       ","    \u001B[33m.d'000000--000000`b.    ",
                 "  \u001B[33m.p'000/\u001B[37m,wWWWWWWw,\u001B[33m\\000`q.  ",
@@ -14,18 +12,11 @@ public class Main
                 "  \u001B[33m`b0000\\\u001B[37m'\\WWWWWW/'\u001B[33m/0000d'  ",
                 "    \u001B[33m`q,000000--000000,p'    ","       \u001B[33m'-000;;;;000-'       "};
 
-        DataProvider[] dataproviders = new DataProvider[]{};
-
         System.out.println("\n\u001B[34mWelcome to the CM SIA (System Infomartion Application)\n");
 
-        //example, remove on completion
-        for (asciIndex = 0; asciIndex < 11; asciIndex++)
-        {
-            System.out.print(ascis[asciIndex]);
-            System.out.println("          \u001B[34mdevice: "+asciIndex);
-        }
+        int asciIndex = 0;
+        DataProvider[] dataproviders = new DataProvider[]{};
 
-        //actual system
         for (DataProvider dataProvider : dataproviders)
         {
             if (asciIndex <= 11){
