@@ -2,6 +2,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+        int asciIndex;
         //Asci logo
         String[] ascis = {"\u001B[33m       _.-nnMMMMnn-._       ","    \u001B[33m.d'00000000000000`b.    ",
                 "  \u001B[33m.p'0000\u001B[37m,wWWWWWWw,\u001B[33m0000`q.  ",
@@ -17,9 +18,7 @@ public class Main
 
         System.out.println("\n\u001B[34mWelcome to the CM SIA (System Infomartion Application)\n");
 
-        int asciIndex;
-
-        //example
+        //example, remove on completion
         for (asciIndex = 0; asciIndex < 11; asciIndex++)
         {
             System.out.print(ascis[asciIndex]);
@@ -32,6 +31,10 @@ public class Main
             if (asciIndex <= 11){
                 System.out.println(ascis[asciIndex]);
                 asciIndex++;
+            }
+            else if (asciIndex == 12)
+            {
+                System.out.println("");
             }
             System.out.println("          \u001B[34m"+dataproviders);
         }
