@@ -12,13 +12,15 @@ public class Main {
                 "  \u001B[33m`b0000\\\u001B[37m'\\WWWWWW/'\u001B[33m/0000d'  ",
                 "    \u001B[33m`q,000000--000000,p'    ","       \u001B[33m'-000;;;;000-'       "};
 
-        System.out.println("\n\u001B[34mWelcome to the CM SIA (System Infomartion Application)\n");
-
         int asciIndex = 0;
         DataProvider[] dataproviders = new DataProvider[]{};
 
         for (DataProvider dataProvider : dataproviders)
         {
+            if (asciIndex == 0)
+            {
+                System.out.println("\n\u001B[34mWelcome to the CM SIA (System Infomartion Application)\n");
+            }
             if (asciIndex <= 11){
                 System.out.println(ascis[asciIndex]);
                 asciIndex++;
