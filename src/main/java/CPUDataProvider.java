@@ -17,7 +17,7 @@ public class CPUDataProvider implements DataProvider {
     @Override
     public String getName() {
         // Return actual CPU name
-        return processor.getProcessorIdentifier().getName();
+        return "CPU";
     }
 
 
