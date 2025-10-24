@@ -3,34 +3,34 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class IpInfo implements DataProvider {
-    private ArrayList<String> ipdata = new ArrayList<>();
+    private final ArrayList<String> ipdata = new ArrayList<>();
 
-  
+
     public IpInfo() {
-        try{
+        try {
             InetAddress ip = InetAddress.getLocalHost();
             ipdata.add(ip.getHostAddress());
         }//end of try block
 
-        catch(UnknownHostException e){
+        catch (UnknownHostException e) {
             ipdata.add("");
         }//end of catch block
     }//end of constructor
 
 
     @Override
-    public String getName(){
+    public String getName() {
         String name = "Ip address";
-        return name ;
+        return name;
     }//end of getName
 
     @Override
-    public ArrayList<String> getData(){
+    public ArrayList<String> getData() {
         return ipdata;
 
     }
 
-    public boolean hasData(){
+    public boolean hasData() {
         return !ipdata.isEmpty();
     }
 

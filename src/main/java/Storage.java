@@ -1,8 +1,6 @@
 import java.util.ArrayList;
-import java.io.File;
 
-public class Storage implements DataProvider
-{
+public class Storage implements DataProvider {
     @Override
     public String getName() {
         return "";
