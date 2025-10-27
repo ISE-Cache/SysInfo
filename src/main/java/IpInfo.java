@@ -1,38 +1,45 @@
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import oshi.SystemInfo;
+import oshi.hardware.NetworkIF;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class IpInfo implements DataProvider {
-    private final ArrayList<String> ipdata = new ArrayList<>();
 
+    private List<NetworkIF> networkInterfaces;
 
     public IpInfo() {
-        try {
-            InetAddress ip = InetAddress.getLocalHost();
-            ipdata.add(ip.getHostAddress());
-        }//end of try block
-
-        catch (UnknownHostException e) {
-            ipdata.add("");
-        }//end of catch block
-    }//end of constructor
-
+        SystemInfo systemInfo = new SystemInfo();
+        networkInterfaces = systemInfo.getHardware().getNetworkIFs();
+    }
 
     @Override
     public String getName() {
-        String name = "Ip address";
-        return name;
-    }//end of getName
+        return "Networking";
+    }
 
     @Override
     public ArrayList<String> getData() {
-        return ipdata;
+        ArrayList<String> data = new ArrayList<>();
 
-    }
+        for (NetworkIF networkInterface : networkInterfaces) {
+            data.add("\n\t\t\t Interface Name: " + networkInterface.getName());
+            data.add("Speed: " + networkInterface.getSpeed() + " Mbps");
+            data.add("IPv4 Address: " + Arrays.toString(networkInterface.getIPv4addr()));
+            data.add("IPv6 Address: " + Arrays.toString(networkInterface.getIPv6addr()));
+            data.add("Packets Sent: " + networkInterface.getPacketsSent());
+            data.add("Packets Recieved: " + networkInterface.getPacketsRecv() + "\n");
+        }
+        return data;
 
+    }//end of getData
+
+    @Override
     public boolean hasData() {
-        return !ipdata.isEmpty();
+        return !networkInterfaces.isEmpty();
     }
 
 
-}//end of class
+
+
+}
