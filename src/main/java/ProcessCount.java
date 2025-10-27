@@ -21,8 +21,8 @@ public class ProcessCount implements DataProvider{
     @Override
     public ArrayList<String> getData() {
         ArrayList<String> processdata = new ArrayList<>();
-        processdata.add("Total running processes: " + String.valueOf(processCount));
-        processdata.add("Total threads: "+String.valueOf(threadCount));
+        processdata.add("Total running processes: " + processCount);
+        processdata.add("Total threads: "+ threadCount);
         return processdata;
     }//end of getData
 
