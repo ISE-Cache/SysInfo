@@ -4,7 +4,8 @@ public class Main {
 
         DataProvider[] dataProviders = new DataProvider[]{
                 new CPUDataProvider(),
-                new IpInfo()
+                new IpInfo(),
+                new ProcessCount()
         };
 
         for (DataProvider provider : dataProviders) {
