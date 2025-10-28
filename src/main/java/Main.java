@@ -6,8 +6,9 @@ public class Main {
                 new CPUDataProvider(),
                 new IpInfo(),
                 new ProcessCount(),
-                new Memory(),
-                new Storage()
+                new ShellProvider(),
+                new Storage(),
+                new Memory()
         };
 
         for (DataProvider provider : dataProviders) {

@@ -29,8 +29,6 @@ public class Memory implements DataProvider
         data.add("Memory Page Size: " + FormatUtil.formatBytes(globalMemory.getPageSize()));
 
         data.add("Physical Memory: " + globalMemory.getPhysicalMemory());
-        data.add("Physical Memory: " + globalMemory.getPhysicalMemory().getFirst());
-        data.add("Physical Memory: " + globalMemory.getPhysicalMemory().getLast());
 
         data.add("Virtual Memory: " + globalMemory.getVirtualMemory());
         data.add("Virtual Memory in use: " + globalMemory.getVirtualMemory().getVirtualInUse());
