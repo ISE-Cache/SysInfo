@@ -3,6 +3,7 @@ import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.ProcessorCache;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CPUDataProvider implements DataProvider {
 
@@ -31,11 +32,17 @@ public class CPUDataProvider implements DataProvider {
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
         // TODO: Join cache sizes by level
+        var levels = new long[((int)Byte.MAX_VALUE) + 1];
         for (ProcessorCache Cache : processor.getProcessorCaches()) {
-            data.add("\nCache Level: " + Cache.getLevel());
+            levels[Cache.getLevel()] += Cache.getCacheSize();
+        }
 
-            long sizeInKB = Cache.getCacheSize() / 1024;
-            data.add("Cache Size: " + sizeInKB + " KB");
+        for (int level = 0; level < levels.length; level++) {
+            var size = levels[level];
+            if (size == 0) continue;
+            String formattedSize = size >= 1024 ? String.format("%d KB", size / 1024) : String.format("%d B", size);
+            data.add("\nCache Level: " + level);
+            data.add("Cache Size: " + formattedSize);
         }
 
 
