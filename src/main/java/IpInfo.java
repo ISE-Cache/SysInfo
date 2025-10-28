@@ -23,12 +23,12 @@ public class IpInfo implements DataProvider {
         ArrayList<String> data = new ArrayList<>();
 
         for (NetworkIF networkInterface : networkInterfaces) {
-            data.add("\nInterface Name: " + networkInterface.getName());
+            data.add("Interface Name: " + networkInterface.getName());
             data.add("\nSpeed: " + networkInterface.getSpeed() + " Mbps");
             data.add("\nIPv4 Address: " + Arrays.toString(networkInterface.getIPv4addr()));
             data.add("IPv6 Address: " + Arrays.toString(networkInterface.getIPv6addr()));
             data.add("\nPackets Sent: " + networkInterface.getPacketsSent());
-            data.add("Packets Recieved: " + networkInterface.getPacketsRecv() + "\n");
+            data.add("Packets Recieved: " + networkInterface.getPacketsRecv());
         }
         return data;
 
