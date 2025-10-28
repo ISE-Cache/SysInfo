@@ -17,7 +17,7 @@ public class Storage implements DataProvider
     @Override
     public String getName()
     {
-        return "Storage";
+        return "\u001B[33mStorage";
     }
 
     @Override

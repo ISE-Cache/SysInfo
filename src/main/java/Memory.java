@@ -16,7 +16,7 @@ public class Memory implements DataProvider
 
     @Override
     public String getName(){
-        return "Memory";
+        return "\u001B[33mMemory";
     }
 
     @Override

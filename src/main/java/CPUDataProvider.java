@@ -32,10 +32,10 @@ public class CPUDataProvider implements DataProvider {
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
 
-//        for (ProcessorCache Cache : processor.getProcessorCaches()) {
-//            data.add("Cache Level: " + Cache.getLevel());
-//            data.add("Cache Name: " + Cache.getCacheSize() + "Bytes");
-//        }
+        for (ProcessorCache Cache : processor.getProcessorCaches()) {
+            data.add("Cache Level: " + Cache.getLevel());
+            data.add("Cache Name: " + Cache.getCacheSize() + "Bytes");
+        }
 
 
         return data;
