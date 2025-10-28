@@ -28,13 +28,13 @@ public class Storage implements DataProvider {
     {
         ArrayList<String> data = new ArrayList<>();
 
-        data.add("First Disk Model: " + diskStats.getFirst().getModel());
-        data.add("Serial: " + diskStats.getFirst().getSerial());
-        data.add("Partitions: " + diskStats.getFirst().getPartitions().toString());
+        //data.add("First Disk Model: " + diskStats.getFirst().getModel());
+        //data.add("Serial: " + diskStats.getFirst().getSerial());
+        //data.add("Partitions: " + diskStats.getFirst().getPartitions().toString());
 
-        data.add("Last Disk Model: " + diskStats.getLast().getModel());
-        data.add("Serial: " + diskStats.getLast().getSerial());
-        data.add("Partitions: " + diskStats.getLast().getPartitions().toString());
+        //data.add("Last Disk Model: " + diskStats.getLast().getModel());
+        //data.add("Serial: " + diskStats.getLast().getSerial());
+        //data.add("Partitions: " + diskStats.getLast().getPartitions().toString());
 
         return data;
     }
