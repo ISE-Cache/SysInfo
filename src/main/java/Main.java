@@ -11,10 +11,11 @@ public class Main {
                 new Memory()
         };
 
+        for (final var ascii : BeautifulASCIIArtArrayOfStrings) {
+            System.out.println(ascii);
+        }
+
         for (DataProvider provider : dataProviders) {
-            for (final var ascii : BeautifulASCIIArtArrayOfStrings) {
-                System.out.println(ascii);
-            }
             System.out.println("          \u001B[34m" + provider.getName());
             System.out.println("          \u001B[34m" + provider.getData());
         }
