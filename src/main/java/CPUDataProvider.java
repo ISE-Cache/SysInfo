@@ -31,11 +31,13 @@ public class CPUDataProvider implements DataProvider {
         // virtual cores created by technologies like Hyper-Threading
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
+       for (ProcessorCache Cache : processor.getProcessorCaches()) {
+           data.add("\nCache Level: " + Cache.getLevel());
 
-        for (ProcessorCache Cache : processor.getProcessorCaches()) {
-            data.add("Cache Level: " + Cache.getLevel());
-            data.add("Cache Name: " + Cache.getCacheSize() + "Bytes");
-        }
+           long sizeInKB = Cache.getCacheSize() / 1024;
+           data.add("Cache Size: " + sizeInKB + " KB");
+       }
+
 
 
         return data;
