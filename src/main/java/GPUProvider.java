@@ -20,7 +20,13 @@ public class GPUProvider implements DataProvider {
     @Override
     public ArrayList<String> getData() {
         final var data = new ArrayList<String>();
+        boolean first = true;
         for (final var card : cards) {
+            if (!first) {
+                // Add an empty line between multiple GPUs
+                data.add("");
+            }
+            first = false;
             data.add("Name: " + card.getName());
             data.add("Vendor: " + card.getVendor());
             data.add("VRAM: " + Util.readableSize(card.getVRam()));
