@@ -27,22 +27,23 @@ public class CPUProvider implements DataProvider {
 
         data.add("Physical cores: " + processor.getPhysicalProcessorCount());
 
-        // virtual cores created by technologies like Hyper-Threading
+        // virtual cores created by technologies like Hyper-Threading(Intel) or SMT(AMD)
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
-        var levels = new long[((int)Byte.MAX_VALUE) + 1];
-        for (ProcessorCache Cache : processor.getProcessorCaches()) {
-            levels[Cache.getLevel()] += Cache.getCacheSize();
+        // Total CPU cache size by level (L1, L2, L3, etc.)
+        var levels = new long[((int) Byte.MAX_VALUE) + 1];
+        for (ProcessorCache cache : processor.getProcessorCaches()) {
+            levels[cache.getLevel()] += cache.getCacheSize();
         }
 
         for (int level = 0; level < levels.length; level++) {
             var size = levels[level];
             if (size == 0) continue;
+            // Format sizes in bytes or kilobytes depending on magnitude
             String formattedSize = size >= 1024 ? String.format("%d KB", size / 1024) : String.format("%d B", size);
             data.add("\nCache Level: " + level);
             data.add("Cache Size: " + formattedSize);
         }
-
 
         return data;
     }
