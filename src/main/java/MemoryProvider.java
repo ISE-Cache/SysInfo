@@ -4,10 +4,10 @@ import oshi.util.FormatUtil;
 
 import java.util.ArrayList;
 
-public class Memory implements DataProvider {
+public class MemoryProvider implements DataProvider {
     private final GlobalMemory globalMemory;
 
-    public Memory() {
+    public MemoryProvider() {
         SystemInfo systemInfo = new SystemInfo();
         globalMemory = systemInfo.getHardware().getMemory();
     }

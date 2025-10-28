@@ -4,10 +4,10 @@ import oshi.hardware.HWDiskStore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Storage implements DataProvider {
+public class StorageProvider implements DataProvider {
     private final List<HWDiskStore> diskStats;
 
-    public Storage() {
+    public StorageProvider() {
         SystemInfo systemInfo = new SystemInfo();
         diskStats = systemInfo.getHardware().getDiskStores();
     }

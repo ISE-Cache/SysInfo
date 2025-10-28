@@ -3,11 +3,11 @@ import oshi.software.os.OperatingSystem;
 
 import java.util.ArrayList;
 
-public class ProcessCount implements DataProvider {
+public class ProcessCountProvider implements DataProvider {
     private final int processCount;
     private final int threadCount;
 
-    public ProcessCount() {
+    public ProcessCountProvider() {
         SystemInfo systemInfo = new SystemInfo();
         OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
         this.processCount = operatingSystem.getProcessCount();

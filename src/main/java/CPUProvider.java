@@ -3,13 +3,12 @@ import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.ProcessorCache;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class CPUDataProvider implements DataProvider {
+public class CPUProvider implements DataProvider {
 
     private final CentralProcessor processor;
 
-    public CPUDataProvider() {
+    public CPUProvider() {
         SystemInfo systemInfo = new SystemInfo();
         processor = systemInfo.getHardware().getProcessor();
     }

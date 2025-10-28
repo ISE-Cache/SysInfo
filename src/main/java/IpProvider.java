@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class IpInfo implements DataProvider {
+public class IpProvider implements DataProvider {
 
     private final List<NetworkIF> networkInterfaces;
 
-    public IpInfo() {
+    public IpProvider() {
         SystemInfo systemInfo = new SystemInfo();
         networkInterfaces = systemInfo.getHardware().getNetworkIFs();
     }
