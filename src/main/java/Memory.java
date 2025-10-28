@@ -16,7 +16,7 @@ public class Memory implements DataProvider
 
     @Override
     public String getName(){
-        return "Memory";
+        return "\u001B[33mMemory";
     }
 
     @Override
@@ -24,20 +24,20 @@ public class Memory implements DataProvider
     {
         ArrayList<String> data = new ArrayList<>();
 
-        data.add("Total Memory: " + FormatUtil.formatBytes(globalMemory.getTotal()));
-        data.add("Available Memory: " + FormatUtil.formatBytes(globalMemory.getAvailable()));
-        data.add("Memory Page Size: " + FormatUtil.formatBytes(globalMemory.getPageSize()));
+        data.add("\nTotal Memory: " + FormatUtil.formatBytes(globalMemory.getTotal()));
+        data.add("\nAvailable Memory: " + FormatUtil.formatBytes(globalMemory.getAvailable()));
+        data.add("\nMemory Page Size: " + FormatUtil.formatBytes(globalMemory.getPageSize()));
 
-        data.add("Physical Memory: " + globalMemory.getPhysicalMemory());
+        data.add("\nPhysical Memory: " + globalMemory.getPhysicalMemory());
 
-        data.add("Virtual Memory: " + globalMemory.getVirtualMemory());
-        data.add("Virtual Memory in use: " + globalMemory.getVirtualMemory().getVirtualInUse());
-        data.add("Virtual Memory maximum: " + globalMemory.getVirtualMemory().getVirtualMax());
+        data.add("\nVirtual Memory: " + globalMemory.getVirtualMemory());
+        data.add("\nVirtual Memory in use: " + globalMemory.getVirtualMemory().getVirtualInUse());
+        data.add("\nVirtual Memory maximum: " + globalMemory.getVirtualMemory().getVirtualMax());
 
-        data.add("Swap Total: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapTotal()));
-        data.add("Swap Used: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapUsed()));
-        data.add("Swap Pages In: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapPagesIn()));
-        data.add("Swap Pages Out: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapPagesOut()));
+        data.add("\nSwap Total: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapTotal()));
+        data.add("\nSwap Used: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapUsed()));
+        data.add("\nSwap Pages In: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapPagesIn()));
+        data.add("\nSwap Pages Out: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapPagesOut()));
 
         return data;
     }

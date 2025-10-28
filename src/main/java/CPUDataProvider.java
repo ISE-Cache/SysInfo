@@ -39,6 +39,7 @@ public class CPUDataProvider implements DataProvider {
        }
 
 
+
         return data;
     }
 

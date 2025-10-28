@@ -15,7 +15,7 @@ public class IpInfo implements DataProvider {
 
     @Override
     public String getName() {
-        return "Networking";
+        return "\u001B[33mNetworking";
     }
 
     @Override
@@ -23,11 +23,11 @@ public class IpInfo implements DataProvider {
         ArrayList<String> data = new ArrayList<>();
 
         for (NetworkIF networkInterface : networkInterfaces) {
-            data.add("\n\t\t\t Interface Name: " + networkInterface.getName());
+            data.add("\nInterface Name: " + networkInterface.getName());
             data.add("Speed: " + networkInterface.getSpeed() + " Mbps");
-            data.add("IPv4 Address: " + Arrays.toString(networkInterface.getIPv4addr()));
+            data.add("\nIPv4 Address: " + Arrays.toString(networkInterface.getIPv4addr()));
             data.add("IPv6 Address: " + Arrays.toString(networkInterface.getIPv6addr()));
-            data.add("Packets Sent: " + networkInterface.getPacketsSent());
+            data.add("\nPackets Sent: " + networkInterface.getPacketsSent());
             data.add("Packets Recieved: " + networkInterface.getPacketsRecv() + "\n");
         }
         return data;
