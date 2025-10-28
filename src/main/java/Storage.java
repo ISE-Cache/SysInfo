@@ -27,7 +27,7 @@ public class Storage implements DataProvider
 
         for (HWDiskStore disk : diskStats)
         {
-            data.add("\nName: " + disk.getName());
+            data.add("Name: " + disk.getName());
             data.add("\nModel: " + disk.getModel());
             data.add("\nSerial: " + disk.getSerial());
             data.add("\nPartitions: " + disk.getPartitions().toString());

@@ -24,7 +24,7 @@ public class Memory implements DataProvider
     {
         ArrayList<String> data = new ArrayList<>();
 
-        data.add("\nTotal Memory: " + FormatUtil.formatBytes(globalMemory.getTotal()));
+        data.add("Total Memory: " + FormatUtil.formatBytes(globalMemory.getTotal()));
         data.add("\nAvailable Memory: " + FormatUtil.formatBytes(globalMemory.getAvailable()));
         data.add("\nMemory Page Size: " + FormatUtil.formatBytes(globalMemory.getPageSize()));
 
