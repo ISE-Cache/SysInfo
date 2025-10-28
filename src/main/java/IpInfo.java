@@ -15,7 +15,7 @@ public class IpInfo implements DataProvider {
 
     @Override
     public String getName() {
-        return "Networking";
+        return "\u001B[33mNetworking";
     }
 
     @Override
