@@ -39,10 +39,8 @@ public class CPUProvider implements DataProvider {
         for (int level = 0; level < levels.length; level++) {
             var size = levels[level];
             if (size == 0) continue;
-            // Format sizes in bytes or kilobytes depending on magnitude
-            String formattedSize = size >= 1024 ? String.format("%d KB", size / 1024) : String.format("%d B", size);
             data.add("\nCache Level: " + level);
-            data.add("Cache Size: " + formattedSize);
+            data.add("Cache Size: " + Util.readableSize(size));
         }
 
         return data;
