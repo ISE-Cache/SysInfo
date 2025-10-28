@@ -6,7 +6,6 @@ import oshi.util.FormatUtil;
 import java.util.ArrayList;
 
 public class CPUProvider implements DataProvider {
-
     private final CentralProcessor processor;
 
     public CPUProvider() {
@@ -23,12 +22,12 @@ public class CPUProvider implements DataProvider {
     @Override
     public ArrayList<String> getData() {
         ArrayList<String> data = new ArrayList<>();
-        // identifies your CPU model, vendor, and architecture.
+        // Identifies your CPU model, vendor, and architecture.
         data.add("Processor Identifier: " + processor.getProcessorIdentifier().getIdentifier());
 
+        // Physical cores with dedicated execution units.
         data.add("Physical cores: " + processor.getPhysicalProcessorCount());
-
-        // virtual cores created by technologies like Hyper-Threading(Intel) or SMT(AMD)
+        // Virtual cores created by SMT implementations like Intel's Hyper-Threading
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
         // Total CPU cache size by level (L1, L2, L3, etc.)
@@ -39,6 +38,7 @@ public class CPUProvider implements DataProvider {
 
         for (int level = 0; level < levels.length; level++) {
             var size = levels[level];
+            // Do not print cache levels without a capacity
             if (size == 0) continue;
             data.add("\nCache Level: " + level);
             data.add("Cache Size: " + FormatUtil.formatBytes(size));
@@ -49,7 +49,8 @@ public class CPUProvider implements DataProvider {
 
     @Override
     public boolean hasData() {
-        return processor != null;  // checks if the processor variable is actually filled / fetched processor info
+        // Did we successfully retrieve processor information?
+        return processor != null;
     }
 }
 
