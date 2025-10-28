@@ -31,7 +31,6 @@ public class CPUDataProvider implements DataProvider {
         // virtual cores created by technologies like Hyper-Threading
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
-        // TODO: Join cache sizes by level
         var levels = new long[((int)Byte.MAX_VALUE) + 1];
         for (ProcessorCache Cache : processor.getProcessorCaches()) {
             levels[Cache.getLevel()] += Cache.getCacheSize();

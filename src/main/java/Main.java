@@ -16,6 +16,7 @@ public class Main {
             for (final var row : provider.getData()) {
                 System.out.println(row);
             }
+            System.out.println();
         }
     }
 }
