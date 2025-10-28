@@ -1,5 +1,6 @@
 import oshi.SystemInfo;
 import oshi.hardware.GraphicsCard;
+import oshi.util.FormatUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class GPUProvider implements DataProvider {
             first = false;
             data.add("Name: " + card.getName());
             data.add("Vendor: " + card.getVendor());
-            data.add("VRAM: " + Util.readableSize(card.getVRam()));
+            data.add("VRAM: " + FormatUtil.formatBytes(card.getVRam()));
             data.add("Version Info: " + card.getVersionInfo());
         }
         return data;

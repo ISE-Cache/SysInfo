@@ -1,6 +1,7 @@
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.ProcessorCache;
+import oshi.util.FormatUtil;
 
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class CPUProvider implements DataProvider {
             var size = levels[level];
             if (size == 0) continue;
             data.add("\nCache Level: " + level);
-            data.add("Cache Size: " + Util.readableSize(size));
+            data.add("Cache Size: " + FormatUtil.formatBytes(size));
         }
 
         return data;
