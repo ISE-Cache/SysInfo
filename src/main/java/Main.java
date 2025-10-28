@@ -20,7 +20,7 @@ public class Main {
         for (DataProvider provider : dataProviders) {
             System.out.println("\u001B[34m" + provider.getName());
             System.out.println("\u001B[34m" + provider.getData());
-            System.out.println("\n");
+            System.out.println("");
         }
     }
 }
