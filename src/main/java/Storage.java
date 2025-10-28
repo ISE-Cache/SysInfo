@@ -9,18 +9,18 @@ public class Storage implements DataProvider {
 
     private final SystemInfo systemInfo;
     private final List<HWDiskStore> diskStats;
-    private final OSFileStore fileStore;
+    //private final OSFileStore fileStore;
 
     public Storage(){
         systemInfo = new SystemInfo();
         diskStats = systemInfo.getHardware().getDiskStores();
-        fileStore = systemInfo.getOperatingSystem().getFileSystem().getFileStores().getFirst();
+        //fileStore = systemInfo.getOperatingSystem().getFileSystem().getFileStores();
     }
 
     @Override
     public String getName()
     {
-        return diskStats.getFirst().getName();
+        return "Storage";
     }
 
     @Override
@@ -28,22 +28,13 @@ public class Storage implements DataProvider {
     {
         ArrayList<String> data = new ArrayList<>();
 
-        data.add(diskStats.getFirst().getModel());
-        data.add(diskStats.getFirst().getSerial());
-        data.add(diskStats.getFirst().getPartitions().toString());
+        data.add("First Disk Model: " + diskStats.getFirst().getModel());
+        data.add("Serial: " + diskStats.getFirst().getSerial());
+        data.add("Partitions: " + diskStats.getFirst().getPartitions().toString());
 
-        data.add(diskStats.getLast().getModel());
-        data.add(diskStats.getLast().getSerial());
-        data.add(diskStats.getLast().getPartitions().toString());
-
-        data.add(fileStore.getType());
-        data.add(fileStore.getLabel());
-        data.add(fileStore.getVolume());
-        data.add(fileStore.getLogicalVolume());
-        data.add(fileStore.getDescription());
-        data.add(fileStore.getMount());
-        data.add(fileStore.getOptions());
-        data.add(fileStore.getUUID());
+        data.add("Last Disk Model: " + diskStats.getLast().getModel());
+        data.add("Serial: " + diskStats.getLast().getSerial());
+        data.add("Partitions: " + diskStats.getLast().getPartitions().toString());
 
         return data;
     }
