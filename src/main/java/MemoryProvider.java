@@ -25,8 +25,6 @@ public class MemoryProvider implements DataProvider {
         data.add("Available Memory: " + FormatUtil.formatBytes(globalMemory.getAvailable()));
         data.add("Memory Page Size: " + FormatUtil.formatBytes(globalMemory.getPageSize()));
 
-        data.add("Physical Memory: " + globalMemory.getPhysicalMemory());
-
         data.add("Virtual Memory Maximum: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getVirtualMax()));
         data.add("Virtual Memory In Use: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getVirtualInUse()));
 
