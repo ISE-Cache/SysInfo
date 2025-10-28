@@ -7,13 +7,13 @@ public class ShellProvider implements DataProvider {
     public ShellProvider() {
         try {
             shell = System.getenv("SHELL");
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
     @Override
     public String getName() {
-        return "\u001B[33mShell";
+        return "Shell";
     }
 
     @Override

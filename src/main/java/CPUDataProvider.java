@@ -6,17 +6,16 @@ import java.util.ArrayList;
 
 public class CPUDataProvider implements DataProvider {
 
-    private final SystemInfo systemInfo;
     private final CentralProcessor processor;
 
     public CPUDataProvider() {
-        systemInfo = new SystemInfo();
+        SystemInfo systemInfo = new SystemInfo();
         processor = systemInfo.getHardware().getProcessor();
     }
 
     @Override
     public String getName() {
-        return "\u001B[33mCPU";
+        return "CPU";
     }
 
 
@@ -31,13 +30,13 @@ public class CPUDataProvider implements DataProvider {
         // virtual cores created by technologies like Hyper-Threading
         data.add("Logical CPUs: " + processor.getLogicalProcessorCount());
 
-       for (ProcessorCache Cache : processor.getProcessorCaches()) {
-           data.add("\nCache Level: " + Cache.getLevel());
+        // TODO: Join cache sizes by level
+        for (ProcessorCache Cache : processor.getProcessorCaches()) {
+            data.add("\nCache Level: " + Cache.getLevel());
 
-           long sizeInKB = Cache.getCacheSize() / 1024;
-           data.add("Cache Size: " + sizeInKB + " KB");
-       }
-
+            long sizeInKB = Cache.getCacheSize() / 1024;
+            data.add("Cache Size: " + sizeInKB + " KB");
+        }
 
 
         return data;
@@ -45,7 +44,6 @@ public class CPUDataProvider implements DataProvider {
 
     @Override
     public boolean hasData() {
-
         return processor != null;  // checks if the processor variable is actually filled / fetched processor info
     }
 }

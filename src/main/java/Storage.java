@@ -1,44 +1,38 @@
 import oshi.SystemInfo;
 import oshi.hardware.HWDiskStore;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Storage implements DataProvider
-{
-    private final SystemInfo systemInfo;
+public class Storage implements DataProvider {
     private final List<HWDiskStore> diskStats;
 
-    public Storage()
-    {
-        systemInfo = new SystemInfo();
+    public Storage() {
+        SystemInfo systemInfo = new SystemInfo();
         diskStats = systemInfo.getHardware().getDiskStores();
     }
 
     @Override
-    public String getName()
-    {
-        return "\u001B[33mStorage";
+    public String getName() {
+        return "Storage";
     }
 
     @Override
-    public ArrayList<String> getData()
-    {
+    public ArrayList<String> getData() {
         ArrayList<String> data = new ArrayList<>();
 
-        for (HWDiskStore disk : diskStats)
-        {
+        for (HWDiskStore disk : diskStats) {
             data.add("Name: " + disk.getName());
-            data.add("\nModel: " + disk.getModel());
-            data.add("\nSerial: " + disk.getSerial());
-            data.add("\nPartitions: " + disk.getPartitions().toString());
+            data.add("Model: " + disk.getModel());
+            data.add("Serial: " + disk.getSerial());
+            data.add("Partitions: " + disk.getPartitions().toString());
         }
 
         return data;
     }
 
     @Override
-    public boolean hasData()
-    {
+    public boolean hasData() {
         return diskStats != null;
     }
 }

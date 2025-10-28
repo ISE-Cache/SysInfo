@@ -1,12 +1,13 @@
 import oshi.SystemInfo;
 import oshi.hardware.NetworkIF;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class IpInfo implements DataProvider {
 
-    private List<NetworkIF> networkInterfaces;
+    private final List<NetworkIF> networkInterfaces;
 
     public IpInfo() {
         SystemInfo systemInfo = new SystemInfo();
@@ -15,7 +16,7 @@ public class IpInfo implements DataProvider {
 
     @Override
     public String getName() {
-        return "\u001B[33mNetworking";
+        return "Networking";
     }
 
     @Override
@@ -38,8 +39,6 @@ public class IpInfo implements DataProvider {
     public boolean hasData() {
         return !networkInterfaces.isEmpty();
     }
-
-
 
 
 }
