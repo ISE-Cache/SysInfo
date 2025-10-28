@@ -30,8 +30,8 @@ public class Memory implements DataProvider
 
         data.add("\nPhysical Memory: " + globalMemory.getPhysicalMemory());
 
-        data.add("\nVirtual Memory Maximum: " + globalMemory.getVirtualMemory().getVirtualMax());
-        data.add("\nVirtual Memory In Use: " + globalMemory.getVirtualMemory().getVirtualInUse());
+        data.add("\nVirtual Memory Maximum: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getVirtualMax()));
+        data.add("\nVirtual Memory In Use: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getVirtualInUse()));
 
         data.add("\nVirtual Memory: " + globalMemory.getVirtualMemory());
         data.add("\nSwap Total: " + FormatUtil.formatBytes(globalMemory.getVirtualMemory().getSwapTotal()));

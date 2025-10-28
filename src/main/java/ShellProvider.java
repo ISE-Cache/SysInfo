@@ -13,7 +13,7 @@ public class ShellProvider implements DataProvider {
 
     @Override
     public String getName() {
-        return "Shell";
+        return "\u001B[33mShell";
     }
 
     @Override

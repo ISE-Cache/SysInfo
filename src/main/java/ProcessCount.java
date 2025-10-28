@@ -15,7 +15,7 @@ public class ProcessCount implements DataProvider{
 
     @Override
     public String getName() {
-        return "Process Count";
+        return "\u001B[33mProcess Count";
     }//end of getName
 
     @Override

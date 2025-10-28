@@ -16,7 +16,7 @@ public class CPUDataProvider implements DataProvider {
 
     @Override
     public String getName() {
-        return "CPU";
+        return "\u001B[33mCPU";
     }
 
 
