@@ -24,7 +24,7 @@ public class IpInfo implements DataProvider {
 
         for (NetworkIF networkInterface : networkInterfaces) {
             data.add("\nInterface Name: " + networkInterface.getName());
-            data.add("Speed: " + networkInterface.getSpeed() + " Mbps");
+            data.add("\nSpeed: " + networkInterface.getSpeed() + " Mbps");
             data.add("\nIPv4 Address: " + Arrays.toString(networkInterface.getIPv4addr()));
             data.add("IPv6 Address: " + Arrays.toString(networkInterface.getIPv6addr()));
             data.add("\nPackets Sent: " + networkInterface.getPacketsSent());
