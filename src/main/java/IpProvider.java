@@ -1,5 +1,6 @@
 import oshi.SystemInfo;
 import oshi.hardware.NetworkIF;
+import oshi.util.FormatUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public class IpProvider implements DataProvider {
         for (NetworkIF networkInterface : networkInterfaces) {
             data.add("Interface Name: " + networkInterface.getName());
             data.add("");
-            data.add("Speed: " + networkInterface.getSpeed() + " Mbps");
+            data.add("Speed: " + FormatUtil.formatBytes(networkInterface.getSpeed() / 8) + "/s");
             data.add("");
             data.add("IPv4 Address: " + Arrays.toString(networkInterface.getIPv4addr()));
             data.add("IPv6 Address: " + Arrays.toString(networkInterface.getIPv6addr()));
